@@ -2,6 +2,8 @@ package ModelDeDate;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Polinom {
     private Map<Integer,Monom> polinom;
@@ -10,6 +12,22 @@ public class Polinom {
     public Polinom()
     {
         this.polinom= new HashMap<Integer,Monom>();
+    }
+    public Polinom(String s)
+    {
+        String regex="[+-]?\\d*[xX]\\^\\d+";
+        Pattern p=Pattern.compile(regex);
+        Matcher m=p.matcher(s);
+        this.polinom= new HashMap<Integer,Monom>();
+        while(m.find())
+        {
+            String mon = m.group();
+            String [] parti =mon.split("[xX]\\^");
+            int coeficient= Integer.parseInt(parti[0]);
+            int putere=Integer.parseInt(parti[1]);
+            Monom mono=new Monom(coeficient,putere);
+            this.polinom.put(putere,mono);
+        }
     }
     public void setPolinom(Map<Integer, Monom> polinom) {
         this.polinom = polinom;
@@ -41,6 +59,8 @@ public class Polinom {
         }
         return rezultat;
     }
+
+
 
 
 

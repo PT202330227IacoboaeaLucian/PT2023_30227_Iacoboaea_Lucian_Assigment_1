@@ -65,7 +65,11 @@ public class operatie {
           Monom rez=null;
             for (int putere2 : a2.getPolinom().keySet()) {
                 rez = new Monom(a1.getPolinom().get(putere1).getCoef()*a2.getPolinom().get(putere2).getCoef(), putere1 + putere2);
+                if(rezultat.getPolinom().get(rez.getPutere())!=null) {
+                    rez.setCoef(rezultat.getPolinom().get(rez.getPutere()).getCoef()+rez.getCoef());
+                }
                 rezultat.adauga(rez);
+
             }
             rezultat.adauga(rez);
         }

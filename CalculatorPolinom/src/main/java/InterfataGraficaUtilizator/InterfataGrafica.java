@@ -14,8 +14,6 @@ import javax.swing.JButton;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 public class InterfataGrafica extends JFrame {
-
-
     private JPanel panou;
     private JLabel calcPolinomLabel;
     private JLabel primulPolinom;
@@ -31,25 +29,6 @@ public class InterfataGrafica extends JFrame {
     private JButton butonImpartire;
     private JButton butonIntegrare;
     private JButton butonDerivare;
-
-
-
-
-
-//   public static void main(String[] args) {
-//        EventQueue.invokeLater(new Runnable() {
-//           public void run() {
-//                try {
-//                    InterfataGrafica frame = new InterfataGrafica();
-//                    frame.setVisible(true);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//           }
-//        });
-//    }
-
-
     public InterfataGrafica() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 408, 552);
@@ -130,16 +109,16 @@ public class InterfataGrafica extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String polinom1= textPrimulPolinom.getText();
                 String polinom2= textAlDoileaPolinom.getText();
+                Polinom p1 = new Polinom(polinom1);
+                Polinom p2 = new Polinom(polinom2);
                 Polinom rezultat=new Polinom();
-                operatie op=new operatie();
-                textRezultat.setText(polinom1+polinom2);
-
+                System.out.println(p1);
+                System.out.println(p2);
+              operatie op=new operatie();
+                rezultat = op.Adunare(p1, p2);
+                textRezultat.setText(rezultat.toString());
             }
         });
-
-
-
-
 
     }
 }
