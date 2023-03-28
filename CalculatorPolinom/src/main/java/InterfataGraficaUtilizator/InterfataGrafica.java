@@ -29,6 +29,19 @@ public class InterfataGrafica extends JFrame {
     private JButton butonImpartire;
     private JButton butonIntegrare;
     private JButton butonDerivare;
+
+    public JTextField getTextPrimulPolinom() {
+        return textPrimulPolinom;
+    }
+
+    public JTextField getTextAlDoileaPolinom() {
+        return textAlDoileaPolinom;
+    }
+
+    public JTextField getTextRezultat() {
+        return textRezultat;
+    }
+
     public InterfataGrafica() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 408, 552);
@@ -103,22 +116,14 @@ public class InterfataGrafica extends JFrame {
         butonDerivare.setFont(new Font("Tahoma", Font.PLAIN, 15));
         butonDerivare.setBounds(221, 428, 144, 50);
         panou.add(butonDerivare);
-
-        butonAdunare.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String polinom1= textPrimulPolinom.getText();
-                String polinom2= textAlDoileaPolinom.getText();
-                Polinom p1 = new Polinom(polinom1);
-                Polinom p2 = new Polinom(polinom2);
-                Polinom rezultat=new Polinom();
-                System.out.println(p1);
-                System.out.println(p2);
-              operatie op=new operatie();
-                rezultat = op.Adunare(p1, p2);
-                textRezultat.setText(rezultat.toString());
-            }
-        });
-
     }
+    public void Adunare (ActionListener actionListener) {this.butonAdunare.addActionListener(actionListener);}
+    public void Scadere (ActionListener actionListener)
+    {
+        this.butonScadere.addActionListener(actionListener);
+    }
+    public void Inmultire (ActionListener actionListener) {this.butonInumltire.addActionListener(actionListener);}
+    public void Derivare (ActionListener actionListener) {this.butonDerivare.addActionListener(actionListener);}
+    public void Integrare (ActionListener actionListener) {this.butonIntegrare.addActionListener(actionListener);}
+
 }

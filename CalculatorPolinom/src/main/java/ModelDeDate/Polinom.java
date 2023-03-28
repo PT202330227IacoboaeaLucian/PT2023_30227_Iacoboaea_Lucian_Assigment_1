@@ -46,16 +46,10 @@ public class Polinom {
     {
         String rezultat="";
         for(Monom m: polinom.values()) {
-            if(m.getCoef() >0) {
+            if(m.getCoef() >=0) {
                 rezultat += "+";
             }
-            rezultat += m.toString();
-            if(m.getCoef()==0) {
-                rezultat="";
-            }
-            if(m.getPutere()==0) {
-                rezultat=""+ m.getCoef();
-            }
+            rezultat+=m.toString();
         }
         return rezultat;
     }

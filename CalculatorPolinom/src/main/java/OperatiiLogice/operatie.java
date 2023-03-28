@@ -91,7 +91,7 @@ public class operatie {
         Polinom rezultat=new Polinom();
         for(int putere1: a1.getPolinom().keySet()) {
             Monom m1=a1.getPolinom().get(putere1);
-            m1.setCoef(m1.getCoef() *(1/(putere1+1)));
+            m1.setCoef((int) (m1.getCoef() *(double)(1/(putere1+1))));
             m1.setPutere(m1.getPutere() +1);
             rezultat.adauga(m1);
         }
