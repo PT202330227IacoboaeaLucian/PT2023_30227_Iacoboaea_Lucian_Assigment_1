@@ -56,12 +56,21 @@ public class ControlerInterfata {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         String polinom1= interfata.getTextPrimulPolinom().getText();
-                        String polinom2= interfata.getTextAlDoileaPolinom().getText();
                         Polinom p1 = new Polinom(polinom1);
-                        Polinom p2 = new Polinom(polinom2);
                         Polinom rezultat=new Polinom();
                         operatie op=new operatie();
                         rezultat = op.Derivare(p1);
+                        interfata.getTextRezultat().setText(rezultat.toString());
+                    }
+                });
+                this.interfata.Integrare(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String polinom1= interfata.getTextPrimulPolinom().getText();
+                        Polinom p1 = new Polinom(polinom1);
+                        Polinom rezultat=new Polinom();
+                        operatie op=new operatie();
+                        rezultat = op.Integrare(p1);
                         interfata.getTextRezultat().setText(rezultat.toString());
                     }
                 });

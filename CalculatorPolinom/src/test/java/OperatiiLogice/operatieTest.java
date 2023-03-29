@@ -64,6 +64,28 @@ class operatieTest {
         assertEquals("+6X^2+18X^5-28X^6", rezultat.toString());
 
     }
+    @Test
+    void testPicat()
+    {
+        String p1="+3x^6-4x^7+2x^3";
+        Polinom pol= new Polinom(p1);
+        Polinom rezultat = new Polinom();
+        operatie op=new operatie();
+        rezultat= op.Derivare(pol);
+        assertEquals("+18X^2+18X^5-28X^6", rezultat.toString());
+    }
+    @Test
+    void testPicat1()
+    {
+        String p1="+3x^6-4x^7+2x^3";
+        String p2="+4x^6-9x^7+2x^2";
+        Polinom pol= new Polinom(p1);
+        Polinom pol1=new Polinom(p2);
+        Polinom rezultat = new Polinom();
+        operatie op=new operatie();
+        rezultat= op.Adunare(pol,pol1);
+        assertEquals("+18X^2+18X^5-28X^6", rezultat.toString());
+    }
 
     @Test
     void integrare() {
