@@ -82,7 +82,10 @@ public class operatie {
             Monom m1= a1.getPolinom().get(putere1);
             m1.setCoef(m1.getCoef() *putere1);
             m1.setPutere(m1.getPutere() -1);
-            rezultat.adauga(m1);
+            if(m1.getPutere()>=0)
+            {
+                rezultat.adauga(m1);
+            }
         }
         return rezultat;
     }
